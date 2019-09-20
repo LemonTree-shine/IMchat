@@ -1,0 +1,83 @@
+.c-pick-mask{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.30);
+    z-index: 10000;
+    .c-content-trans{
+        transition: height .15s;
+    }
+    .content-box{
+        position: absolute;
+        bottom:0;
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        overflow: hidden;
+        background: #ffffff;
+        padding: 30px;
+        box-sizing: border-box;
+        height: 0px;
+        .close-btn{
+            width: 32px;
+            height: 32px;
+            //background: url("https://medicalpop.oss-cn-hangzhou.aliyuncs.com/ssapp/images/icon/close-pick.png");
+            background-size: 100% 100%;
+            position: absolute;
+            right:30px;
+            top:30px;
+            img{
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+        .title-box{
+            padding-bottom: 30px;
+            border-bottom: 1px solid #EEEEEE;
+            .title{
+                font-size: 36px;
+                color: rgba(0,0,0,0.87);
+                line-height: 50px;
+                font-weight: 700;
+            }
+            .sub-title{
+                font-size: 28px;
+                color: rgba(0,0,0,0.87);
+                line-height: 40px;
+                margin-top: 10px;
+            }
+        }
+        .content{
+            padding-top: 30px;
+            font-size: 40px;
+        }
+    }
+    .c-content-trans-left{
+        position: absolute;
+        bottom:0;
+        top: 0;
+        height: 100%;
+        width: 70%;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform .15s;
+        border-radius: 0 10px 10px 0;
+    }
+    .c-content-trans-right{
+        position: absolute;
+        bottom:0;
+        top: 0;
+        height: 100%;
+        width: 70%;
+        right: 0;
+        transform: translateX(100%);
+        transition: transform .15s;
+        border-radius: 10px 0 0 10px;
+    }
+}
+
+.c-pick-mask.mask-none{
+    background: rgba(0,0,0,0);
+}
