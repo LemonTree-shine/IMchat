@@ -69,6 +69,8 @@ export default class Index extends Component{
     sendText = ()=>{
         //alert(this.Input.value)
         var self = this;
+        if(!self.Input.value) return;
+        
         this.nim.sendText({
             scene: 'p2p',
             to: self.toAccount,

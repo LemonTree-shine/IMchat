@@ -50,26 +50,28 @@ export default class Index extends Component{
     componentDidMount(){
         var self = this;
         connentIm.call(this).then(function(){
-            // self.nim.getHistoryMsgs({
-            //     scene: 'p2p',
-            //     endTime:Date.now(),
-            //     reverse:false,
-            //     to: self.toAccount,
-            //     done: function(error,obj){
-            //         console.log(obj.msgs);
-            //         self.setState({
-            //             msgList:obj.msgs
-            //         },()=>{
-            //             self.scrollToBottom();
-            //         });
-            //     }
-            // })
+            self.nim.getHistoryMsgs({
+                scene: 'p2p',
+                endTime:Date.now(),
+                reverse:false,
+                to: self.toAccount,
+                done: function(error,obj){
+                    console.log(obj.msgs);
+                    self.setState({
+                        msgList:obj.msgs
+                    },()=>{
+                        self.scrollToBottom();
+                    });
+                }
+            })
         });
     }
 
     sendText = ()=>{
         //alert(this.Input.value)
         var self = this;
+        if(!self.Input.value) return;
+        
         this.nim.sendText({
             scene: 'p2p',
             to: self.toAccount,
